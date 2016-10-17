@@ -1,0 +1,126 @@
+@mixin clear {
+	&:before, &:after { display: table; content: ''; line-height: 0; }
+	&:after { clear: both; }
+	&:before { *zoom: 1; }
+}
+@mixin float($value) {
+	float: $value;
+}
+@mixin flex($alignItems, $justifyContent) {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-align-items: $alignItems;
+	-ms-align-items: $alignItems;
+	align-items: $alignItems;
+	-webkit-justify-content: $justifyContent;
+	-ms-justify-content: $justifyContent;
+	justify-content: $justifyContent;
+}
+@mixin box-shadow($values) {
+	-webkit-box-shadow: $values;
+	-moz-box-shadow: $values;
+	box-shadow: $values;
+}
+@mixin animation($values) {
+	-webkit-animation: $values;
+	-moz-animation: $values;
+	-ms-animation: $values;
+	animation: $values;
+	-webkit-animation-fill-mode: both;
+	-moz-animation-fill-mode: both;
+}
+@mixin animation-iteration-count($value) {
+	-webkit-animation-iteration-count: $value;
+	-moz-animation-iteration-count: $value;
+	-ms-animation-iteration-count: $value;
+	-o-animation-iteration-count: $value;
+	animation-iteration-count: $value;
+}
+@mixin transform-origin($v) {
+	-webkit-transform-origin: $v;
+	-moz-transform-origin: $v;
+	-ms-transform-origin: $v;
+	-o-transform-origin: $v;
+	transform-origin: $v;
+}
+@mixin keyframes($name) {
+	@-webkit-keyframes #{$name} {
+		@content;
+	}
+	@-moz-keyframes #{$name} {
+		@content;
+	}
+	@keyframes #{$name} {
+		@content;
+	}
+}
+@mixin transition($expression) {
+	-webkit-transition: $expression;
+	-moz-transition: $expression;
+	-o-transition: $expression;
+	transition: $expression;
+}
+@mixin position($top: false, $right: false, $bottom: false, $left: false) {
+	// -- Examlpe: @include position($top: 10px, $left: 5px);
+	position: absolute;
+	@if type_of($left) == number {
+		left: $left;
+	}
+	@if type_of($right) == number {
+		right: $right;
+	}
+	@if type_of($top) == number {
+		top: $top;
+	}
+	@if type_of($bottom) == number {
+		bottom: $bottom;
+	}
+}
+@mixin fixed($top: false, $right: false, $bottom: false, $left: false) {
+	position: fixed;
+	@if type_of($left) == number {
+		left: $left;
+	}
+	@if type_of($right) == number {
+		right: $right;
+	}
+	@if type_of($top) == number {
+		top: $top;
+	}
+	@if type_of($bottom) == number {
+		bottom: $bottom;
+	}
+}
+@mixin border-radius($radius: false, $topleft: false, $topright: false, $bottomright: false, $bottomleft: false) {
+	// -- Example 1: @include border-radius(20px);
+	// -- Example 2: @include border-radius($topleft: 20px);
+	@if type_of($radius) == number {
+		-webkit-border-radius: $radius;
+		-moz-border-radius: $radius;
+		border-radius: $radius;
+	}
+	@if type_of($topleft) == number {
+		-webkit-border-top-left-radius: $topleft;
+		-moz-border-top-left-radius: $topleft;
+		border-top-left-radius: $topleft;
+	}
+	@if type_of($topright) == number {
+		-webkit-border-top-right-radius: $topright;
+		-moz-border-top-right-radius: $topright;
+		border-top-right-radius: $topright;
+	}
+	@if type_of($bottomleft) == number {
+		-webkit-border-bottom-left-radius: $bottomleft;
+		-moz-border-bottom-left-radius: $bottomleft;
+		border-bottom-left-radius: $bottomleft;
+	}
+	@if type_of($bottomright) == number {
+		-webkit-border-bottom-right-radius: $bottomright;
+		-moz-border-bottom-right-radius: $bottomright;
+		border-bottom-right-radius: $bottomright;
+	}
+}
+@mixin respond-to($size) {
+	@media only screen and (max-width: $size) { @content; }
+}
