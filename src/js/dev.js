@@ -6,3 +6,5 @@ $(window).scroll(function(){
 		$('.header').removeClass('scrolled');
 	}
 });
+
+new WOW().init();
