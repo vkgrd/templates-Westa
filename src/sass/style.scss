@@ -10,7 +10,12 @@
 	font-family: 'Open Sans';
 }
 .container {
-	width: 1150px;
+	width: 1100px;
+	margin: 0 auto;
+}
+
+.top-block-content, .content-wrapper {
+	width: 1050px;
 	margin: 0 auto;
 }
 
@@ -185,7 +190,7 @@
 		size: cover;
 		position: center center;
 	}
-	height: 550px;
+	height: 700px;
 	padding-top: 170px;
 	width: 100%;
 	position: relative;
@@ -200,8 +205,6 @@
 		z-index: 2;
 	}
 	.top-block-content {
-		width: 960px;
-		margin: 0 auto;
 		position: relative;
 		color: white;
 		z-index: 3;
@@ -237,5 +240,125 @@
 				cursor: pointer;
 			}
 		}
+	}
+}
+.features-block {
+	.first-blocks, .second-blocks {
+		@include clear();
+	}
+	.first-block, .second-block {
+		float: left;
+		width: calc(100% / 3);
+		@include flex(center, center);
+	}
+	.first-blocks {
+		z-index: 5;
+		position: relative;
+		margin-top: -80px;
+		.first-block {
+			@include box-shadow(0px 0px 60px 0px rgba(0,0,0,0.2));
+			text-align: center;
+			background-color: white;
+			position: relative;
+			&.become-client {
+				.icon {
+					margin: 0 auto;
+					width: 100px;
+					height: 100px;
+					background-size: 70px;
+					background-repeat: no-repeat;
+					background-position: center center;
+					@extend .westa-become-client-icon;
+				}
+			}
+			&.support-program {
+			 	@extend .westa-support-program-background;
+			 	background-position: center center;
+			 	background-size: 270px;
+			 	background-repeat: no-repeat;
+			}
+			&.save-money {
+				@extend .westa-save-money-background;
+				background-position: center center;
+				background-size: 270px;
+				background-repeat: no-repeat;
+			}
+			&.block-center { 
+				height: 250px; 
+				z-index: 7;
+				border-radius: 15px;
+				margin-top: -40px;
+				h2 {
+					font-size: 30px;
+					color: $heading-color;
+				}
+				p {
+					color: $description-color;
+					font-size: 13px;
+				}
+			}
+			&.block-side { 
+				height: 165px; 
+				z-index: 3;
+				border-bottom: 3px solid $green-color;
+				h2 {
+					font-size: 20px;
+					color: $heading-color;
+				}
+				p {
+					color: $description-color;
+					font-size: 13px;
+				}
+				&:first-child {
+					border-radius: 15px 0 0 15px;
+				}
+				&:last-child {
+					border-radius: 0 15px 15px 0;
+				}
+			}
+		}
+	}
+	.second-blocks {
+		.second-block {
+			text-align: center;
+			h1 {
+				color: $heading-color;
+			}
+			p {
+				color: $description-color;
+			}
+			&.block-center {
+				background-color: white;
+				border-radius: 15px;
+				@include box-shadow(0px 0px 60px 0px rgba(0,0,0,0.2));
+				height: 300px;
+				h2 {
+					font-size: 25px;
+					padding-bottom: 15px;
+				}
+				p {
+					font-size: 13px;
+					padding: 0px 15px 15px;
+				}
+			}
+			&.block-side {
+				height: 300px;
+				h2 {
+					font-size: 20px;
+					padding-bottom: 10px;
+				}
+				p {
+					font-size: 13px;
+				}
+			}
+		}
+		margin-bottom: 500px;
+	}
+	.separator-block {
+		text-align: center;
+		padding: 100px 0;
+		font-weight: bold;
+		font-size: 30px;
+		color: $heading-color;
 	}
 }
