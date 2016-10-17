@@ -1,7 +1,195 @@
 @import "var";
 @import "mixins";
+@import "ico";
+@import "fonts.scss";
+@import "font-awesome.scss";
 
 * { 
 	padding: 0;
 	margin: 0;
+	font-family: 'Open Sans';
+}
+.container {
+	width: 1250px;
+	margin: 0 auto;
+}
+
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: calc(100% - 100px);
+	height: 145px;
+	max-height: 145px;
+	z-index: 999;
+	padding: 0 50px;
+	.container {
+		@include clear();
+		border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+	}
+	.left-side {
+		@include float(left);
+		ul li { 
+			display: inline-block; 
+			margin-right: -4px; 
+			line-height: 145px;
+			list-style: none;
+		}
+		.logo, .number {
+			text-decoration: none;
+			display: block;
+			height: 145px;
+			line-height: 145px;
+			margin-right: -4px;
+			color: white;
+			@include transition(all 350ms ease-out);
+		}
+		.logo {
+			@extend .westa-logo;
+			padding-left: 60px;
+			font-weight: 100;
+			background: {
+				size: 45px;
+				repeat: no-repeat;
+				position: left center;
+			}
+			font:{
+				size: 16px;
+				weight: 600;
+			}
+			padding-right: 20px;
+		}
+		.number {
+			i.fa {
+				padding-right: 4px;
+				color: rgba(255, 255, 255, 0.5);
+				@include transition(all 500ms ease-out);
+			}
+			padding-left: 20px;
+			margin-top: -5px;
+			font: {
+				size: 16px;
+				weight: 100;
+			}
+			&:hover i.fa {
+				color: white;
+			}
+		}
+	}
+	.right-side {
+		@include float(right);
+		ul li {
+			display: inline-block;
+			margin-right: -4px;
+			line-height: 145px;
+			list-style: none;
+			a {
+				@include transition(all 350ms ease-out);
+				text-decoration: none;
+				padding: 7px 0;
+				margin: 0 15px;
+				color: white;
+				border: dotted transparent;
+				border-width: 1px 0;
+				font: {
+					size: 14px;
+					weight: 100;
+				}
+				&:hover {
+					border-bottom-color: $green-color;
+					color: $green-color;
+					cursor: pointer;
+				}
+			}
+		}
+	}
+	&.scrolled {
+		background-color: rgba(0, 0, 0, 0.90);
+		height: 50px;
+		.container {
+			border-bottom: none;
+		}
+		.left-side {
+			ul li {
+				line-height: 50px;
+			}
+			.logo, .number {
+				line-height: 50px;
+				height: 50px;
+			}
+			.logo {
+				background-size: 35px;
+				padding-left: 45px;
+			}
+		}
+		.right-side {
+			ul li {
+				line-height: 50px;
+				a {
+					margin: 0 7px;
+				}
+			}
+		}
+	}
+}
+.top-block {
+	@extend .westa-top-background;
+	@include flex(center, center);
+	background: {
+		size: cover;
+		position: center center;
+	}
+	height: 550px;
+	padding-top: 170px;
+	width: 100%;
+	position: relative;
+	z-index: 1;
+	.top-block-dark {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.55);
+		z-index: 2;
+	}
+	.top-block-content {
+		width: 1050px;
+		margin: 0 auto;
+		position: relative;
+		color: white;
+		z-index: 3;
+		h1 {
+			font-size: 65px;
+			font-weight: 100;
+			padding-bottom: 15px;
+			.company {
+				font-weight: bold;
+			}
+		}
+		p {
+			padding-top: 15px;
+			font-size: 22px;
+			font-weight: 100;
+			padding-bottom: 25px;
+		}
+		a.top-action {
+			margin-top: 25px;
+			line-height: 50px;
+			display: inline-block;
+			background-color: green;
+			color: white;
+			padding: 0 30px;
+			text-decoration: none;
+			border-radius: 50px;
+			text-transform: uppercase;
+			font-size: 14px;
+			font-weight: bold;
+			@include transition(all 300ms ease-out);
+			&:hover {
+				background-color: darken(green, 10);
+				cursor: pointer;
+			}
+		}
+	}
 }
