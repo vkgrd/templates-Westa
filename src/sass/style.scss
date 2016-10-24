@@ -440,3 +440,39 @@
 		}
 	}
 }
+.footer {
+	.footer-row {
+		padding: 50px 0;
+		@include clear();
+		.footer-col {
+			@include float(left);
+			ul {
+				padding-top: 20px;
+				li {
+					padding: 0 10px;
+					list-style: none;
+					a {
+						color: #ADBAC1;
+						text-decoration: none;
+						font-weight: 200;
+						font-size: 13px;
+						line-height: 25px;
+						display: block;
+						@include transition(all 350ms ease-out);
+						&:hover {
+							color: $green-color;
+						}
+					}
+				}
+			}
+		}
+	}
+	.footer-copyright {
+		border-top: 1px solid #F0F0F0;
+		line-height: 95px;
+		text-align: center;
+		color: #ADBAC1;
+		font-weight: 200;
+		font-size: 14px;
+	}
+}
