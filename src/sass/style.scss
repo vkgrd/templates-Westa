@@ -408,7 +408,7 @@
 				}
 			}
 		}
-		margin-bottom: 500px;
+		padding-bottom: 100px;
 	}
 	.separator-block {
 		@extend .westa-bg-logo;
@@ -421,5 +421,22 @@
 		color: $heading-color;
 		background-position: center center;
 		background-repeat: no-repeat;
+	}
+}
+.links-block {
+	background-color: #F7F8FA;
+	a {
+		line-height: 95px;
+		display: inline-block;
+		width: calc(100% / 5);
+		text-align: center;
+		color: #ADBAC1;
+		text-decoration: none;
+		font-weight: 200;
+		@include transition(all 350ms ease-out);
+		&:hover {
+			color: $green-color;
+			text-decoration: underline;
+		}
 	}
 }
